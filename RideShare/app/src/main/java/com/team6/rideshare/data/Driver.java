@@ -2,33 +2,47 @@ package com.team6.rideshare.data;
 
 import android.location.Address;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Driver {
 
-    private Address mAddress;
-    private Address mPollingLocation;
-    private int mCapacity;
-    private String mName;
+    @JsonIgnore private Address mAddress;
+    private double longitude;
+    private double latitude;
+    private String pollingLocation;
+    private int capacity;
+    private String name;
 
-    public Driver(Address address, Address pollingLocation, String name, int capacity) {
+    public Driver(Address address, String pollingLocation, String name, int capacity) {
         mAddress = address;
-        mPollingLocation = pollingLocation;
-        mCapacity = capacity;
-        mName = name;
+        longitude = address.getLongitude();
+        latitude = address.getLatitude();
+        this.pollingLocation = pollingLocation;
+        this.capacity = capacity;
+        this.name = name;
     }
 
     public Address getAddress() {
         return mAddress;
     }
 
-    public Address getPollingLocation() {
-        return mPollingLocation;
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public String getPollingLocation() {
+        return pollingLocation;
     }
 
     public int getCapacity() {
-        return mCapacity;
+        return capacity;
     }
 
     public String getName() {
-        return mName;
+        return name;
     }
 }

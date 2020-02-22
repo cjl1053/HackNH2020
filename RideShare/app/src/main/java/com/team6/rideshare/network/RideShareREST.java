@@ -14,7 +14,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 
 import java.util.List;
 
-@Rest(rootUrl = "http://127.0.0.1:8000",
+@Rest(rootUrl = "http://10.0.2.2:8000",
     converters = {StringHttpMessageConverter.class, MappingJackson2HttpMessageConverter.class})
 public interface RideShareREST extends RestClientErrorHandling {
 
