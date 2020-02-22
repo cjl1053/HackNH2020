@@ -29,7 +29,7 @@ public class DriverActivity extends AppCompatActivity implements AdapterView.OnI
                 R.array.polling_locations, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pollSpinner.setAdapter(adapter);
-
+        pollSpinner.setOnItemSelectedListener(this);
     }
 
     @Override
