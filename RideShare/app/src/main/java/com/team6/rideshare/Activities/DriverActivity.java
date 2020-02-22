@@ -11,8 +11,14 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.team6.rideshare.R;
+import com.team6.rideshare.network.RideShareREST;
+
+import org.androidannotations.rest.spring.annotations.RestService;
 
 public class DriverActivity extends AppCompatActivity {
+
+    @RestService
+    RideShareREST rideShareREST;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

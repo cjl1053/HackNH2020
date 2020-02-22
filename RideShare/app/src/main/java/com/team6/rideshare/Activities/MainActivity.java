@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view View
      */
     public void pressDriver(View view) {
-        startActivity(new Intent(this, DriverActivity.class));
+        startActivity(new Intent(this, DriverActivity_.class));
     }
 
     /**
