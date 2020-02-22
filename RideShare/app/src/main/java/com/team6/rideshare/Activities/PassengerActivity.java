@@ -35,5 +35,41 @@ public class PassengerActivity extends AppCompatActivity {
 
             }
         });
+
+        Spinner timeStartSpinner = (Spinner) findViewById(R.id.time_spinner_start);
+        ArrayAdapter<CharSequence> time_adapter = ArrayAdapter.createFromResource(this,
+                R.array.driver_leave_times, android.R.layout.simple_spinner_item);
+        time_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        timeStartSpinner.setAdapter(time_adapter);
+        timeStartSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
+                String item = adapterView.getItemAtPosition(pos).toString();
+                Log.i("Time Start", item);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        Spinner timeEndSpinner = (Spinner) findViewById(R.id.time_spinner_end);
+        ArrayAdapter<CharSequence> time_adapter2 = ArrayAdapter.createFromResource(this,
+                R.array.driver_leave_times, android.R.layout.simple_spinner_item);
+        time_adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        timeEndSpinner.setAdapter(time_adapter2);
+        timeEndSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
+                String item = adapterView.getItemAtPosition(pos).toString();
+                Log.i("Time End", item);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 }
