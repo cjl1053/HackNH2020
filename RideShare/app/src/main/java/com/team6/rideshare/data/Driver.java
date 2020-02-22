@@ -7,11 +7,13 @@ public class Driver {
     private Address mAddress;
     private Address mPollingLocation;
     private int mCapacity;
+    private String mName;
 
-    public Driver(Address address, Address pollingLocation, int capacity) {
+    public Driver(Address address, Address pollingLocation, String name, int capacity) {
         mAddress = address;
         mPollingLocation = pollingLocation;
         mCapacity = capacity;
+        mName = name;
     }
 
     public Address getAddress() {
@@ -24,5 +26,9 @@ public class Driver {
 
     public int getCapacity() {
         return mCapacity;
+    }
+
+    public String getName() {
+        return mName;
     }
 }

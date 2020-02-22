@@ -19,12 +19,14 @@
 
 
     <TableLayout
+        android:id="@+id/button_table"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TableRow
+            android:id="@+id/button_row"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/driver_butt"
