@@ -7,6 +7,7 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea
 
 # Generated files
 .idea/**/contentModel.xml
@@ -76,3 +77,5 @@ fabric.properties
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
+
+.DS_STORE
