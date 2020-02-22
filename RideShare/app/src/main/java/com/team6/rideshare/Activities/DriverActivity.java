@@ -13,8 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.team6.rideshare.R;
 import com.team6.rideshare.network.RideShareREST;
 
+import org.androidannotations.annotations.EActivity;
 import org.androidannotations.rest.spring.annotations.RestService;
 
+@EActivity
 public class DriverActivity extends AppCompatActivity {
 
     @RestService

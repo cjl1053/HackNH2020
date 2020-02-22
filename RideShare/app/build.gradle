@@ -9,6 +9,13 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        'androidManifestFile': 'app/build/intermediates/merged_manifests/debug/AndroidManifest.xml'
+                ]
+            }
+        }
     }
     buildTypes {
         release {
@@ -16,11 +23,30 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+    }
 }
 
+def AAVersion = "4.6.0" // change this to your desired version, for example the latest stable: 4.4.0
+
 dependencies {
-    annotationProcessor "org.androidannotations:rest-spring:4.6.0"
-    implementation "org.androidannotations:rest-spring-api:4.6.0"
+    annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
+    implementation "org.androidannotations:androidannotations-api:$AAVersion"
+    annotationProcessor "org.androidannotations:rest-spring:$AAVersion"
+    implementation "org.androidannotations:rest-spring-api:$AAVersion"
+}
+
+
+dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
