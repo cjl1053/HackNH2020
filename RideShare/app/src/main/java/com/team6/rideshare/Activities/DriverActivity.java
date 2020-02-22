@@ -25,17 +25,29 @@ public class DriverActivity extends AppCompatActivity implements AdapterView.OnI
         passPicker.setMaxValue(20);
 
         Spinner pollSpinner = (Spinner) findViewById(R.id.poll_loc_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+        ArrayAdapter<CharSequence> poll_adapter = ArrayAdapter.createFromResource(this,
                 R.array.polling_locations, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        pollSpinner.setAdapter(adapter);
+        poll_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        pollSpinner.setAdapter(poll_adapter);
         pollSpinner.setOnItemSelectedListener(this);
+
+        Spinner timeSpinner = (Spinner) findViewById(R.id.time_spinner);
+        ArrayAdapter<CharSequence> time_adapter = ArrayAdapter.createFromResource(this,
+                R.array.driver_leave_times, android.R.layout.simple_spinner_item);
+        time_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        timeSpinner.setAdapter(time_adapter);
+        timeSpinner.setOnItemSelectedListener(this);
     }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
         String item = adapterView.getItemAtPosition(pos).toString();
-        Log.i("Selected", item);
+        switch(adapterView.getId()){
+            case R.id.poll_loc_spinner:
+                Log.i("Poll location", item);
+            case R.id.time_spinner:
+                Log.i("Time selected", item);
+        }
 
     }
 
