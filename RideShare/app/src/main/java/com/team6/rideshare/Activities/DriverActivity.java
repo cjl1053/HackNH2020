@@ -52,7 +52,6 @@ public class DriverActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
                 String item = adapterView.getItemAtPosition(pos).toString();
-                //Log.i("Location", item);
                 pollLocation = item;
             }
 
@@ -102,7 +101,7 @@ public class DriverActivity extends AppCompatActivity {
         }
         int numPass = Integer.parseInt(editPass.getText().toString());
 
-        rideShareREST.registerNewDriver(new Driver(leaveAddress, pollLocation, name, numPass));
+        rideShareREST.registerNewDriver(new Driver(leaveAddress, pollLocation, name, numPass, timePos));
     }
 
 
