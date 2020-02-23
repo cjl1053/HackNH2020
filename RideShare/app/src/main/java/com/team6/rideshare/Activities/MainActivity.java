@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.LoginFilter;
 import android.view.View;
 
 import com.team6.rideshare.R;
@@ -21,6 +22,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void pressLogIn(View view){
-        //startActivity(new Intent(this,));
+        startActivity(new Intent(this, LogInActivity_.class));
     }
 }
