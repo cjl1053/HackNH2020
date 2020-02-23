@@ -93,6 +93,45 @@ class Planner:
 
         return self.best_plan, False
 
+    def generate_plan2(self, drivers, passengers):
+        # Quick end cases: if we're out of drivers, we've hit a child node
+        # If we're out of passengers, all of them have been assigned and we're done
+        if len(drivers) == 0 or len(passengers) == 0:
+            plan = Plan(self.drivers, passengers)
+            if self.best_plan is None or plan.score < self.best_plan.score:
+                self.best_plan = plan
+            return self.best_plan, len(passengers) == 0
+
+        next_passenger = passengers[0]
+        driver_order = sorted(drivers, key=lambda sort_driver: get_distance(sort_driver, next_passenger))
+
+        selected_driver = None
+        for d in driver_order:
+            if d.capacity <= next_passenger.amount:
+                selected_driver = d
+                break
+
+        if selected_driver is None:
+            return self.generate_plan2(drivers, passengers[1:])
+
+        # General case, recurse down and continue assignments
+        cur_long, cur_lat = selected_driver.current_long, selected_driver.current_lat
+
+        selected_driver.route.append(next_passenger)
+        selected_driver.capacity -= next_passenger.amount
+        selected_driver.current_long = next_passenger.longitude
+        selected_driver.current_lat = next_passenger.latitude
+
+        if self.generate_plan(drivers, passengers[1:])[1]:
+            return self.best_plan, True
+
+        selected_driver.current_lat = cur_lat
+        selected_driver.current_long = cur_long
+        selected_driver.capacity += next_passenger.amount
+        selected_driver.route = selected_driver.route[:-1]
+
+        return self.best_plan, False
+
 
 def write_plan(plan):
     for route in plan.routes:
@@ -116,7 +155,7 @@ def run():
         drivers = read_drivers(driver_list)
         passengers = passengers_by_location(location)
         planner = Planner(drivers, passengers)
-        plan, result = planner.generate_plan(drivers, passengers)
+        plan, result = planner.generate_plan2(drivers, passengers)
 
         print("Did route get all passengers? " + str(result))
         for route in plan.routes:
