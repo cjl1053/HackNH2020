@@ -21,7 +21,7 @@ class RideShareRequestHandler(BaseHTTPRequestHandler):
         elif uri_parts[0] == "login":
             self.wfile.write(self.check_login(uri_parts[1], uri_parts[2]))
         elif uri_parts[0] == "register":
-            self.wfile.write(self.check_login(uri_parts[1], uri_parts[2]))
+            self.wfile.write(self.try_register(uri_parts[1], uri_parts[2]))
 
 
     def do_POST(self):
@@ -32,9 +32,9 @@ class RideShareRequestHandler(BaseHTTPRequestHandler):
             body = json.loads(self.rfile.read(length))
         uri_parts = self.path[1:].split('/')
         if uri_parts[1] == "driver":
-            self.register_driver(body)
+            self.wfile.write(self.register_driver(body))
         elif uri_parts[1] == "passenger":
-            self.register_passenger(body)
+            self.wfile.write(self.register_passenger(body))
 
     @staticmethod
     def get_driver_route(name):
@@ -51,17 +51,20 @@ class RideShareRequestHandler(BaseHTTPRequestHandler):
 
     @staticmethod
     def try_register(username, password):
-        return json.dumps({"result": AccountManagement.add_account(username, password)})
+        temp = {"result": AccountManagement.add_account(username, password)}
+        return json.dumps(temp).encode()
 
     @staticmethod
     def register_driver(driver):
         print("Register new driver...")
         db.add_driver(driver)
+        return json.dumps({"result": "true"}).encode()
 
     @staticmethod
     def register_passenger(passenger):
         print("Register new passenger...")
         db.add_passenger(passenger)
+        return json.dumps({"result": "true"}).encode()
 
 
 def run(server_class=HTTPServer, handler_class=RideShareRequestHandler):

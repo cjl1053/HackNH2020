@@ -32,15 +32,15 @@ def verify_password(stored_password, provided_password):
 
 def add_account(username, password):
     for _ in accountsTable.find({"user": username}):
-        return False
+        return "false"
     accountsTable.insert_one({"user": username, "pass": hash_password(password)})
-    return True
+    return "true"
 
 
 def verify_login(username, password):
     for account in accountsTable.find({"user": username}):
-        return verify_password(account['pass'], password)
-    return False
+        return "true" if verify_password(account['pass'], password) else "false"
+    return "false"
 
 
 if __name__ == '__main__':
