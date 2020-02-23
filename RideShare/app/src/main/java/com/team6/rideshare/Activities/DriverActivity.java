@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -91,10 +92,15 @@ public class DriverActivity extends AppCompatActivity {
         String passString = editPass.getText().toString();
         String loc = editLoc.getText().toString();
         Address leaveAddress = longLatConverter.getCoordinates(loc);
-        int numPass = -1;
-        if(!(passString.equals(""))) {
-            numPass = Integer.parseInt(editPass.getText().toString());
+        if(leaveAddress == null) {
+            Toast.makeText(this, "Address not found", Toast.LENGTH_SHORT).show();
+            return;
         }
+        if(passString.equals("")) {
+            Toast.makeText(this, "Please enter a number of passengers!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        int numPass = Integer.parseInt(editPass.getText().toString());
 
         rideShareREST.registerNewDriver(new Driver(leaveAddress, pollLocation, name, numPass));
     }
