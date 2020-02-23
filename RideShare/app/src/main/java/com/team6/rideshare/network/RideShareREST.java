@@ -29,9 +29,9 @@ public interface RideShareREST extends RestClientErrorHandling {
     BooleanWrapper register(@Path String user, @Path String pass);
 
     @Post("/new/driver")
-    void registerNewDriver(@Body Driver driver);
+    BooleanWrapper registerNewDriver(@Body Driver driver);
 
     @Post("/new/passenger")
-    void registerNewPassenger(@Body Passenger passenger);
+    BooleanWrapper registerNewPassenger(@Body Passenger passenger);
 
 }
