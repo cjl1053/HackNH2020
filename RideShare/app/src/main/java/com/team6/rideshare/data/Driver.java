@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Driver {
 
-    @JsonIgnore private Address mAddress;
+    private Address mAddress;
     private double longitude;
     private double latitude;
     private String pollingLocation;
@@ -22,6 +22,7 @@ public class Driver {
         this.name = name;
     }
 
+    @JsonIgnore
     public Address getAddress() {
         return mAddress;
     }
