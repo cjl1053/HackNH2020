@@ -117,8 +117,8 @@ def setupTests():
         line = line.rstrip("\n\r").split(",")
         toPush = {
             "name": line[0],
-            "longitude": float(line[1]),
-            "latitude": float(line[2]),
+            "longitude": float(line[2]),
+            "latitude": float(line[1]),
             "capacity": int(line[3]),
             "leave_time": int(line[4]),
             "polling_location": line[5],
@@ -130,8 +130,8 @@ def setupTests():
         line = line.rstrip("\n\r").split(",")
         toPush = {
             "name": line[0],
-            "longitude": float(line[1]),
-            "latitude": float(line[2]),
+            "longitude": float(line[2]),
+            "latitude": float(line[1]),
             "amount": int(line[3]),
             "start_time": int(line[4]),
             "end_time": int(line[5]),
