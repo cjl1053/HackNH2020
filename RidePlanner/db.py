@@ -12,10 +12,16 @@ routeTable = db.routes
 
 
 def add_driver(driver_post):
+    if 'pollingLocation' in driver_post.keys():
+        driver_post['polling_location'] = driver_post['pollingLocation']
+        del driver_post['pollingLocation']
     return driverTable.insert_one(driver_post).inserted_id
 
 
 def add_passenger(passenger_post):
+    if 'pollingLocation' in passenger_post.keys():
+        passenger_post['polling_location'] = passenger_post['pollingLocation']
+        del passenger_post['pollingLocation']
     return passengerTable.insert_one(passenger_post).inserted_id
 
 
