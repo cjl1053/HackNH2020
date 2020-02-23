@@ -8,27 +8,6 @@
         android:layout_height="wrap_content">
 
         <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-        <TextView
-            android:id="@+id/text_view_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Your Name:"
-            android:layout_marginLeft="4dp"
-            android:textColor="#000000"
-            android:textSize="16sp"/>
-
-        <EditText
-            android:id="@+id/passenger_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
-         </TableRow>
-
-        <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 

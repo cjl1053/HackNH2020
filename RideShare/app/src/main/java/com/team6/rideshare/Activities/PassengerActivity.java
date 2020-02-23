@@ -14,9 +14,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.shape.CutCornerTreatment;
 import com.team6.rideshare.R;
 import com.team6.rideshare.data.Passenger;
 import com.team6.rideshare.network.RideShareREST;
+import com.team6.rideshare.util.CurrentLogin;
 import com.team6.rideshare.util.LongLatConverter;
 
 
@@ -104,10 +106,9 @@ public class PassengerActivity extends AppCompatActivity {
     @Background
     @Click(R.id.submit_button)
     public void handleSubmit(){
-        EditText editName = (EditText) findViewById(R.id.passenger_name);
         EditText editPass = (EditText) findViewById(R.id.num_passengers);
         EditText editLoc = (EditText) findViewById(R.id.pick_up_loc_input);
-        String name = editName.getText().toString();
+        String name = CurrentLogin.getInstance().getUsername();
         String passString = editPass.getText().toString();
         String loc = editLoc.getText().toString();
         Address leaveAddress = longLatConverter.getCoordinates(loc);
@@ -126,15 +127,6 @@ public class PassengerActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     showToast(act,"Please enter a number of passengers!" );
-                }
-            });
-            return;
-        }
-        if(name.equals("")) {
-            act.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    showToast(act,"Please enter your name!" );
                 }
             });
             return;
