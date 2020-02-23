@@ -3,6 +3,7 @@
     <string-array name="polling_locations">
         <item>Acworth Town Hall 13 Town Hall Rd Acworth 03601</item>
         <item>Albany Town Hall 1972 Route 16 Albany 03818</item>
+        <item>Hampton Falls Town Office 1 Drinkwater Rd Hampton Falls 03844</item>
         <item>Old Town Hall 45 Washburn Rd Alexandria 03222</item>
         <item>St Jean The Baptist Parish Hall 10 School St Allenstown 03275</item>
         <item>Town Hall 9 Main St Alstead 03602</item>
@@ -97,7 +98,6 @@
         <item>Conway Elementary School 160 Main St - Hale\'s Location 03818</item>
         <item>Hampstead Middle School 28 School St Hampstead 03841</item>
         <item>Winnacunnet High School Cafeteria 1 Alumni Dr Hampton 03842</item>
-        <item>Hampton Falls Town Office 1 Drinkwater Rd Hampton Falls 03844</item>
         <item>Hancock Town Office 50 Main St Hancock 03449</item>
         <item>Town Office Building 705 Chesham Rd Harrisville 03450</item>
         <item>Town Municipal Building 2975 Dartmouth College Hwy Haverhill 03774</item>

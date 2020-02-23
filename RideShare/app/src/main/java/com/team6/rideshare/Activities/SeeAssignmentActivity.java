@@ -97,7 +97,7 @@ public class SeeAssignmentActivity extends AppCompatActivity {
         for(RouteStop stop : routeStops) {
             TableRow newRow = new TableRow(this);
 
-            Address stopAddress = mLongLatConverter.fromCoordinates(stop.longitude, stop.latitude);
+            Address stopAddress = mLongLatConverter.fromCoordinates(stop.latitude, stop.longitude);
             String addressText = stopAddress != null ? stopAddress.getAddressLine(0) : String.format(Locale.US, "(%f, %f)", stop.longitude, stop.latitude);
 
             TextView stopTextView = (TextView) LayoutInflater.from(this).inflate(R.layout.route_stop_textview, newRow, false);
@@ -107,22 +107,35 @@ public class SeeAssignmentActivity extends AppCompatActivity {
             tableLayout.addView(newRow);
         }
 
-//        if(routeStops.size() > 0) {
-//            TableRow buttonRow = new TableRow(this);
-//            Button newButton = new Button(this);
-//            newButton.setText("Open in Google Maps");
-//            newButton.setOnClickListener(new View.OnClickListener() {
-//                @Background
-//                @Override
-//                public void onClick(View v) {
-//                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(rideShareREST.getMapURI(CurrentLogin.getInstance().getUsername())));
-//                    startActivity(mapIntent);
-//                }
-//            });
-//            buttonRow.addView(newButton);
-//            tableLayout.addView(buttonRow);
-//        }
+        if(routeStops.size() >= 0) {
+            TableRow buttonRow = new TableRow(this);
+            Button newButton = new Button(this);
+            newButton.setText("Open in Google Maps");
+            newButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openMap();
+                }
+            });
+            buttonRow.addView(newButton);
+            tableLayout.addView(buttonRow);
+        }
 
+    }
+
+    @Background
+    void openMap() {
+        String mapString = rideShareREST.getMapURI(CurrentLogin.getInstance().getUsername());
+        mapString = mapString.substring(1, mapString.length()-1);
+        Uri mapUri = Uri.parse(mapString);
+//        Uri mapUri = Uri.parse("https://www.google.com/maps/dir/?api=1&origin=Madrid,Spain&destination=Barcelona,Spain&waypoints=Zaragoza,Spain%7CHuesca,Spain&travelmode=driving&dir_action=navigate");
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(mapUri);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else{
+            // No application is available that can handle this intent
+        }
     }
 
     @UiThread
