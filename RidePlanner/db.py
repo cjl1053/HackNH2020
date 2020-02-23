@@ -57,3 +57,6 @@ def get_passengers():
 
     return passengerDestinations
 
+def clearDB():
+    driverTable.drop()
+    passengerTable.drop()
