@@ -9,7 +9,7 @@ public class Driver {
     private Address mAddress;
     private double longitude;
     private double latitude;
-    private String pollingLocation;
+    private String polling_location;
     private int capacity;
     private String name;
 
@@ -19,7 +19,7 @@ public class Driver {
         mAddress = address;
         longitude = address.getLongitude();
         latitude = address.getLatitude();
-        this.pollingLocation = pollingLocation;
+        this.polling_location = pollingLocation;
         this.capacity = capacity;
         this.name = name;
         this.leaveTime = leaveTime;
@@ -38,8 +38,8 @@ public class Driver {
         return latitude;
     }
 
-    public String getPollingLocation() {
-        return pollingLocation;
+    public String getPolling_location() {
+        return polling_location;
     }
 
     public int getCapacity() {
