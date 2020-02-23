@@ -2,6 +2,7 @@ from http.server import *
 import json
 
 import db
+import AccountManagement
 
 
 class RideShareRequestHandler(BaseHTTPRequestHandler):
@@ -17,6 +18,11 @@ class RideShareRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(self.get_driver_route(uri_parts[1]))
         elif uri_parts[0] == "passengers":
             self.wfile.write(self.get_passenger_assignment(uri_parts[1]))
+        elif uri_parts[0] == "login":
+            self.wfile.write(self.check_login(uri_parts[1], uri_parts[2]))
+        elif uri_parts[0] == "register":
+            self.wfile.write(self.check_login(uri_parts[1], uri_parts[2]))
+
 
     def do_POST(self):
         length = int(self.headers['content-length'])
@@ -38,6 +44,14 @@ class RideShareRequestHandler(BaseHTTPRequestHandler):
     def get_passenger_assignment(name):
         driver, time = db.get_passenger_assignment(name)
         return json.dumps({"driver": driver, "time": time}).encode()
+
+    @staticmethod
+    def check_login(username, password):
+        return json.dumps({"result": AccountManagement.verify_login(username, password)}).encode()
+
+    @staticmethod
+    def try_register(username, password):
+        return json.dumps({"result": AccountManagement.add_account(username, password)})
 
     @staticmethod
     def register_driver(driver):
