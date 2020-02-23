@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.team6.rideshare.R;
+import com.team6.rideshare.network.RideShareErrorHandler;
 import com.team6.rideshare.network.RideShareREST;
 import com.team6.rideshare.util.CurrentLogin;
 
@@ -28,6 +29,7 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        rideShareREST.setRestErrorHandler(new RideShareErrorHandler());
     }
 
     private void showToast(Context ctx, String msg) {
@@ -64,6 +66,7 @@ public class SignUp extends AppCompatActivity {
         if(success){
             CurrentLogin.getInstance().setUsername(name);
             startActivity(new Intent( this, SignUpSuccess_.class));
+            finish();
         } else {
             act.runOnUiThread(new Runnable() {
                 @Override

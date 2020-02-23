@@ -30,6 +30,7 @@ public class SignUpSuccess extends AppCompatActivity {
      */
     public void pressDriver(View view) {
         startActivity(new Intent(this, DriverActivity_.class));
+        finish();
     }
 
     /**
@@ -38,6 +39,7 @@ public class SignUpSuccess extends AppCompatActivity {
      */
     public void pressPass(View view) {
         startActivity(new Intent(this, PassengerActivity_.class));
+        finish();
     }
 
 }

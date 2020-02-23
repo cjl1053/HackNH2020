@@ -3,6 +3,7 @@ import json
 
 import db
 import AccountManagement
+import mapsURIgen
 
 
 class RideShareRequestHandler(BaseHTTPRequestHandler):
@@ -22,6 +23,8 @@ class RideShareRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(self.check_login(uri_parts[1], uri_parts[2]))
         elif uri_parts[0] == "register":
             self.wfile.write(self.try_register(uri_parts[1], uri_parts[2]))
+        elif uri_parts[0] == "maps":
+            self.wfile.write(self.get_driver_maps_uri(uri_parts[1]))
 
 
     def do_POST(self):
@@ -39,6 +42,10 @@ class RideShareRequestHandler(BaseHTTPRequestHandler):
     @staticmethod
     def get_driver_route(name):
         return json.dumps({'passengers': db.get_driver_route(name)}).encode()
+
+    @staticmethod
+    def get_driver_maps_uri(name):
+        return json.dumps(mapsURIgen.gen_map_uri(name)).encode()
 
     @staticmethod
     def get_passenger_assignment(name):

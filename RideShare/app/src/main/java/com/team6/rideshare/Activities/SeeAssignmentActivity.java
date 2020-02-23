@@ -2,12 +2,15 @@ package com.team6.rideshare.Activities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.location.Address;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -103,6 +106,22 @@ public class SeeAssignmentActivity extends AppCompatActivity {
             newRow.addView(stopTextView);
             tableLayout.addView(newRow);
         }
+
+//        if(routeStops.size() > 0) {
+//            TableRow buttonRow = new TableRow(this);
+//            Button newButton = new Button(this);
+//            newButton.setText("Open in Google Maps");
+//            newButton.setOnClickListener(new View.OnClickListener() {
+//                @Background
+//                @Override
+//                public void onClick(View v) {
+//                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(rideShareREST.getMapURI(CurrentLogin.getInstance().getUsername())));
+//                    startActivity(mapIntent);
+//                }
+//            });
+//            buttonRow.addView(newButton);
+//            tableLayout.addView(buttonRow);
+//        }
 
     }
 

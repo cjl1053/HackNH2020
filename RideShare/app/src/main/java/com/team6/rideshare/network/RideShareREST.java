@@ -11,6 +11,7 @@ import org.androidannotations.rest.spring.annotations.Rest;
 import org.androidannotations.rest.spring.api.RestClientErrorHandling;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.RestClientException;
 
 @Rest(rootUrl = "http://10.0.2.2:8000",
     converters = {StringHttpMessageConverter.class, MappingJackson2HttpMessageConverter.class})
@@ -27,6 +28,9 @@ public interface RideShareREST extends RestClientErrorHandling {
 
     @Get("/register/{user}/{pass}")
     BooleanWrapper register(@Path String user, @Path String pass);
+
+    @Get("/maps/{driver}")
+    String getMapURI(@Path String driver);
 
     @Post("/new/driver")
     BooleanWrapper registerNewDriver(@Body Driver driver);

@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.team6.rideshare.R;
+import com.team6.rideshare.network.RideShareErrorHandler;
 import com.team6.rideshare.network.RideShareREST;
 import com.team6.rideshare.util.CurrentLogin;
 
@@ -28,6 +29,7 @@ public class LogInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+        rideShareREST.setRestErrorHandler(new RideShareErrorHandler());
     }
 
     private void showToast(Context ctx, String msg) {
