@@ -6,7 +6,8 @@ import db
 
 
 class Driver:
-    def __init__(self, start_long, start_lat, capacity):
+    def __init__(self, name, start_long, start_lat, capacity):
+        self.name = name
         self.start_long = start_long
         self.start_lat = start_lat
         self.current_long = start_long
@@ -21,7 +22,8 @@ class Driver:
 
 
 class Passenger:
-    def __init__(self, longitude, latitude, amount):
+    def __init__(self, name, longitude, latitude, amount):
+        self.name = name
         self.longitude = longitude
         self.latitude = latitude
         self.amount = amount
@@ -98,8 +100,12 @@ def write_plan(plan):
 
 
 if __name__ == '__main__':
-    ds = [Driver(0, 0, 3), Driver(10, 10, 2)]
-    ps = [Passenger(1, 1, 1), Passenger(2, 3, 2), Passenger(9, 7, 1), Passenger(5, 5, 3)]
+    if '-t' in argv:
+        ds = [Driver("Connor", 0, 0, 3), Driver("Joel", 10, 10, 2)]
+        ps = [Passenger("Alpha", 1, 1, 1), Passenger("Beta", 2, 3, 2), Passenger("Gamma", 9, 7, 1), Passenger("Echo", 5, 5, 3)]
+    else:
+        ds = db.get_drivers()
+        ps = db.get_passengers()
 
     planner = Planner(ds, ps)
     result = planner.generate_plan(ds, ps)

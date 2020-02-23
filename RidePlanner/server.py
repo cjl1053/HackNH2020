@@ -14,7 +14,7 @@ class RideShareRequestHandler(BaseHTTPRequestHandler):
         self._set_headers()
         uri_parts = self.path[1:].split('/')
         if uri_parts[0] == "drivers":
-            self.wfile.write(get_driver_route(uri_parts[1]))
+            self.wfile.write(self.get_driver_route(uri_parts[1]))
         elif uri_parts[1] == "passengers":
             self.wfile.write(self.get_passenger_assignment(uri_parts[1]))
 

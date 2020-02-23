@@ -19,7 +19,8 @@ def add_passenger(passenger_post):
 
 
 def add_route(driver, passengers):
-    return routeTable.insert_one((driver, passengers)).inserted_id
+    for i, passenger in enumerate(passengers):
+        routeTable.insert_one({"driver": driver.name, "passenger": passenger.name, "order": i+1})
 
 
 def get_passenger_info(name):
@@ -64,10 +65,6 @@ def get_passengers():
     return passengerDestinations
 
 
-def get_routes():
-    return [route for route in routeTable.find()]
-
-
 def get_passenger_assignment(name):
     for route in routeTable.find():
         if name in route[1]:
@@ -76,12 +73,20 @@ def get_passenger_assignment(name):
 
 
 def get_driver_route(name):
+    passengers = []
+    # Grab every passenger assigned to this driver
     for route in routeTable.find():
-        if route[0] == name:
-            passengers = route[1]
-            return [(p['name'], p['longitude'], p['latitude']) for p in passengers]
+        if route['driver'] == name:
+            passenger = get_passenger_info(route['passenger'])
+            passengers.append((passenger['name'], passenger['longitude'], passenger['latitude'], passenger['order']))
+
+    # return a sorted list by order, so the route is in the correct order
+    return sorted(passengers, key=lambda p: p[3])
 
 
 def clearDB():
     driverTable.drop()
     passengerTable.drop()
+
+if __name__ == '__main__':
+    print(get_driver_route("Connor"))
