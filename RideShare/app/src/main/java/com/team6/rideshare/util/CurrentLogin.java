@@ -2,8 +2,8 @@ package com.team6.rideshare.util;
 
 public class CurrentLogin {
 
-    private CurrentLogin instance;
-    public CurrentLogin getInstance() {
+    private static CurrentLogin instance;
+    public static CurrentLogin getInstance() {
         if(instance == null) {
             instance = new CurrentLogin();
         }

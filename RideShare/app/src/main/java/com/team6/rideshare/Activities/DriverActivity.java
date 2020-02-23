@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.team6.rideshare.R;
 import com.team6.rideshare.data.Driver;
 import com.team6.rideshare.network.RideShareREST;
+import com.team6.rideshare.util.CurrentLogin;
 import com.team6.rideshare.util.LongLatConverter;
 
 import org.androidannotations.annotations.Background;
@@ -91,10 +92,9 @@ public class DriverActivity extends AppCompatActivity {
     @Background
     @Click(R.id.submit_button)
     public void handleSubmit(){
-        EditText editName = findViewById(R.id.edit_text_driver_name);
         EditText editPass = findViewById(R.id.num_passengers);
         EditText editLoc = findViewById(R.id.leave_loc_input);
-        String name = editName.getText().toString();
+        String name = CurrentLogin.getInstance().getUsername();
         String passString = editPass.getText().toString();
         String loc = editLoc.getText().toString();
         Address leaveAddress = longLatConverter.getCoordinates(loc);
@@ -113,15 +113,6 @@ public class DriverActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     showToast(act,"Please enter a number of passengers!" );
-                }
-            });
-            return;
-        }
-        if(name.equals("")) {
-            act.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    showToast(act,"Please enter your name!" );
                 }
             });
             return;
