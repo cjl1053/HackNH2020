@@ -99,6 +99,10 @@ public class DriverActivity extends AppCompatActivity {
             Toast.makeText(this, "Please enter a number of passengers!", Toast.LENGTH_SHORT).show();
             return;
         }
+        if(name.equals("")) {
+            Toast.makeText(this, "Please enter your name!", Toast.LENGTH_SHORT).show();
+            return;
+        }
         int numPass = Integer.parseInt(editPass.getText().toString());
 
         rideShareREST.registerNewDriver(new Driver(leaveAddress, pollLocation, name, numPass, timePos));

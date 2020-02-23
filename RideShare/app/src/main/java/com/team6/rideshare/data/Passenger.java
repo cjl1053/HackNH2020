@@ -7,13 +7,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Passenger {
 
     private Address address;
-    private Address pollingLocation;
+    private String pollingLocation;
     private int amount;
     private String name;
     private int startTime;
     private int endTime;
 
-    public Passenger(Address address, Address pollingLocation, String name, int amount,
+    public Passenger(Address address, String pollingLocation, String name, int amount,
                      int startTime, int endTime) {
         this.address = address;
         this.pollingLocation = pollingLocation;
@@ -28,7 +28,7 @@ public class Passenger {
         return address;
     }
 
-    public Address getPollingLocation() {
+    public String getPollingLocation() {
         return pollingLocation;
     }
 
