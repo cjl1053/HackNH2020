@@ -99,21 +99,32 @@ def write_plan(plan):
         db.add_route(route[0], route[1])
 
 
+def read_drivers(driver_list):
+    driver_records = [db.get_driver_info(d) for d in driver_list]
+    return [Driver(record['name'], record['longitude'], record['latitude'], record['capacity']) for record in driver_records]
+
+
+def passengers_by_location(location):
+    ps = db.get_passengers_by_location(location)
+    return [Passenger(p['name'], p['longitude'], p['latitude'], p['amount']) for p in ps]
+
+
+def run():
+    ds = db.get_drivers()
+
+    for location, driver_list in ds:
+        drivers = read_drivers(driver_list)
+        passengers = passengers_by_location(location)
+        planner = Planner(drivers, passengers)
+        plan, result = planner.generate_plan(drivers, passengers)
+
+        print("Did route get all passengers? " + str(result))
+        for route in plan.routes:
+            print(route)
+
+        if '-p' in argv:
+            write_plan(plan)
+
+
 if __name__ == '__main__':
-    if '-t' in argv:
-        ds = [Driver("Connor", 0, 0, 3), Driver("Joel", 10, 10, 2)]
-        ps = [Passenger("Alpha", 1, 1, 1), Passenger("Beta", 2, 3, 2), Passenger("Gamma", 9, 7, 1), Passenger("Echo", 5, 5, 3)]
-    else:
-        ds = db.get_drivers()
-        ps = db.get_passengers()
-
-    planner = Planner(ds, ps)
-    result = planner.generate_plan(ds, ps)
-    test_plan = result[0]
-
-    print("Did route get all passengers? " + str(result[1]))
-    for route in test_plan.routes:
-        print(route)
-
-    if '-p' in argv:
-        write_plan(test_plan)
+    run()

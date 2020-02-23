@@ -32,7 +32,7 @@ class RideShareRequestHandler(BaseHTTPRequestHandler):
 
     @staticmethod
     def get_driver_route(name):
-        return db.get_driver_route(name)
+        return json.dumps({'name': name, 'passengers': db.get_driver_route(name)})
 
     @staticmethod
     def get_passenger_assignment(name):

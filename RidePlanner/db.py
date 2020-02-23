@@ -68,11 +68,14 @@ def get_passengers():
     return passengerDestinations
 
 
+def get_passengers_by_location(polling_location):
+    return [p for p in passengerTable.find({"polling_location": polling_location})]
+
+
 def get_passenger_assignment(name):
-    for route in routeTable.find():
-        if name in route[1]:
-            driver = get_driver_info(route[0])
-            return driver["name"], driver["leaveTime"]
+    for assignment in routeTable.find({"passenger": name}):
+        driver_name = assignment['driver']
+        return driver_name, get_driver_info(driver_name)['leave_time']
 
 
 def get_driver_route(name):
@@ -86,7 +89,7 @@ def get_driver_route(name):
                     passenger["name"],
                     passenger["longitude"],
                     passenger["latitude"],
-                    passenger["order"],
+                    route["order"],
                 )
             )
 
@@ -97,10 +100,11 @@ def get_driver_route(name):
 def clearDB():
     driverTable.drop()
     passengerTable.drop()
+    routeTable.drop()
 
 
 def setupTests():
-    os.chdir(r"./RidePlanner")
+    # os.chdir(r"./RidePlanner")
     inDriversFile = open("testdrivers.csv", "r")
     inPassengerFile = open("testpassengers.csv", "r")
 
@@ -140,7 +144,8 @@ def setupTests():
 
 
 if __name__ == "__main__":
-    print(get_driver_route("Connor"))
+    # print(get_driver_route("Macauley"))
+    print(get_passenger_assignment("Steve"))
 
     # Thicc Brain Joey Testing Reigon
     # clearDB()
