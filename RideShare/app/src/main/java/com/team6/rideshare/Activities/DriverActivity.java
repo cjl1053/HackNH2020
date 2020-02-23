@@ -1,10 +1,13 @@
 package com.team6.rideshare.Activities;
 
+import android.location.Address;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
 
@@ -12,8 +15,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.team6.rideshare.R;
 import com.team6.rideshare.network.RideShareREST;
+import com.team6.rideshare.util.LongLatConverter;
 
+import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 import org.androidannotations.rest.spring.annotations.RestService;
 
 @EActivity
@@ -22,10 +29,18 @@ public class DriverActivity extends AppCompatActivity {
     @RestService
     RideShareREST rideShareREST;
 
+    public String name;
+    public int numPass;
+    public Address leave;
+    public String pollLocation;
+    public LongLatConverter longLatConverter;
+    public int timePos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver);
+        longLatConverter = new LongLatConverter(this.getApplicationContext());
 
 
         Spinner pollSpinner = (Spinner) findViewById(R.id.poll_loc_spinner);
@@ -37,7 +52,8 @@ public class DriverActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
                 String item = adapterView.getItemAtPosition(pos).toString();
-                Log.i("Location", item);
+                //Log.i("Location", item);
+                pollLocation = item;
             }
 
             @Override
@@ -55,7 +71,8 @@ public class DriverActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
                 String item = adapterView.getItemAtPosition(pos).toString();
-                Log.i("Time", item);
+                //Log.i("Time", item);
+                timePos = pos;
             }
 
             @Override
@@ -64,5 +81,28 @@ public class DriverActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Background
+    @Click(R.id.submit_button)
+    public void handleSubmit(){
+        EditText editName = (EditText) findViewById(R.id.edit_text_driver_name);
+        EditText editPass = (EditText) findViewById(R.id.num_passengers);
+        EditText editLoc = (EditText) findViewById(R.id.leave_loc_input);
+        name = editName.getText().toString();
+        String passString = editPass.getText().toString();
+        String loc = editLoc.getText().toString();
+        leave = longLatConverter.getCoordinates(loc);
+        if(passString.equals(""))
+            numPass = -1;
+        else
+            numPass = Integer.parseInt(editPass.getText().toString());
+        Log.i("Name", name);
+        Log.i("Num pass", numPass+"");
+        if(leave != null)
+            Log.i("Addres", leave+"");
+
+    }
+
+
 
 }
