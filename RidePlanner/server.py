@@ -1,6 +1,8 @@
 from http.server import *
 import json
 
+import db
+
 
 class RideShareRequestHandler(BaseHTTPRequestHandler):
     def _set_headers(self):
@@ -28,17 +30,23 @@ class RideShareRequestHandler(BaseHTTPRequestHandler):
         elif uri_parts[1] == "passenger":
             self.register_passenger(body)
 
-    def get_driver_route(self, name):
-        return f"Driver route for {name}".encode()
+    @staticmethod
+    def get_driver_route(name):
+        return db.get_driver_route(name)
 
-    def get_passenger_assignment(self, name):
-        return f"Passenger assignment for {name}".encode()
+    @staticmethod
+    def get_passenger_assignment(name):
+        return db.get_passenger_assignment(name)
 
-    def register_driver(self, driver):
+    @staticmethod
+    def register_driver(driver):
         print("Register new driver...")
+        db.add_driver(driver)
 
-    def register_passenger(self, passenger):
+    @staticmethod
+    def register_passenger(passenger):
         print("Register new passenger...")
+        db.add_passenger(passenger)
 
 
 def run(server_class=HTTPServer, handler_class=RideShareRequestHandler):
