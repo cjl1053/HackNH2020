@@ -2,16 +2,37 @@ package com.team6.rideshare.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.location.Address;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.team6.rideshare.R;
+import com.team6.rideshare.data.Passenger;
+import com.team6.rideshare.network.RideShareREST;
+import com.team6.rideshare.util.LongLatConverter;
 
+
+import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.rest.spring.annotations.RestService;
+
+@EActivity
 public class PassengerActivity extends AppCompatActivity {
+
+    @RestService
+    RideShareREST rideShareREST;
+
+    private LongLatConverter longLatConverter;
+    private String pollLocation;
+    private int timeStart;
+    private int timeEnd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +48,7 @@ public class PassengerActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
                 String item = adapterView.getItemAtPosition(pos).toString();
-                Log.i("Location", item);
+                pollLocation = item;
             }
 
             @Override
@@ -36,7 +57,7 @@ public class PassengerActivity extends AppCompatActivity {
             }
         });
 
-        Spinner timeStartSpinner = (Spinner) findViewById(R.id.time_spinner_start);
+        final Spinner timeStartSpinner = (Spinner) findViewById(R.id.time_spinner_start);
         ArrayAdapter<CharSequence> time_adapter = ArrayAdapter.createFromResource(this,
                 R.array.driver_leave_times, android.R.layout.simple_spinner_item);
         time_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -45,7 +66,7 @@ public class PassengerActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
                 String item = adapterView.getItemAtPosition(pos).toString();
-                Log.i("Time Start", item);
+                timeStart = pos;
             }
 
             @Override
@@ -63,7 +84,7 @@ public class PassengerActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
                 String item = adapterView.getItemAtPosition(pos).toString();
-                Log.i("Time End", item);
+                timeEnd = pos;
             }
 
             @Override
@@ -71,5 +92,32 @@ public class PassengerActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Background
+    @Click(R.id.submit_button)
+    public void handleSubmit(){
+        EditText editName = (EditText) findViewById(R.id.passenger_name);
+        EditText editPass = (EditText) findViewById(R.id.num_passengers);
+        EditText editLoc = (EditText) findViewById(R.id.pick_up_loc_input);
+        String name = editName.getText().toString();
+        String passString = editPass.getText().toString();
+        String loc = editLoc.getText().toString();
+        Address leaveAddress = longLatConverter.getCoordinates(loc);
+        if(leaveAddress == null) {
+            Toast.makeText(this, "Address not found", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(passString.equals("")) {
+            Toast.makeText(this, "Please enter a number of passengers!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(name.equals("")) {
+            Toast.makeText(this, "Please enter your name!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        int numPass = Integer.parseInt(editPass.getText().toString());
+        rideShareREST.registerNewPassenger(new Passenger(leaveAddress, pollLocation, name, numPass, timeStart, timeEnd));
+
     }
 }

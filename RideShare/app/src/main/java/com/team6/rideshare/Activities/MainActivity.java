@@ -31,6 +31,6 @@ public class MainActivity extends AppCompatActivity {
      * @param view View
      */
     public void pressPass(View view) {
-        startActivity(new Intent(this, PassengerActivity.class));
+        startActivity(new Intent(this, PassengerActivity_.class));
     }
 }
