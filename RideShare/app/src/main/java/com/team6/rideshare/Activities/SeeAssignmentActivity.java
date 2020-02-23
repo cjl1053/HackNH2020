@@ -73,6 +73,16 @@ public class SeeAssignmentActivity extends AppCompatActivity {
     @UiThread
     void showDriverStuff(DriverRoute route) {
         List<RouteStop> routeStops = Arrays.asList(route.passengers);
+        if(routeStops.isEmpty()){
+            TableLayout tableLayout = findViewById(R.id.result_table);
+
+            TableRow newRow = new TableRow(this);
+            TextView nonePassengers = (TextView) LayoutInflater.from(this).inflate(R.layout.route_stop_textview, newRow, false);
+            nonePassengers.setText(getString(R.string.no_pass));
+
+            newRow.addView(nonePassengers);
+            tableLayout.addView(newRow);
+        }
         Collections.sort(routeStops, new Comparator<RouteStop>() {
             @Override
             public int compare(RouteStop stop1, RouteStop stop2) {
