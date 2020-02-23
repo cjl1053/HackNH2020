@@ -33,4 +33,12 @@ public class MainActivity extends AppCompatActivity {
     public void pressPass(View view) {
         startActivity(new Intent(this, PassengerActivity_.class));
     }
+
+    /**
+     * handles the on click of seeing assignments.
+     * @param view View
+     */
+    public void pressAssignments(View view) {
+        startActivity(new Intent(this, SeeAssignmentActivity_.class));
+    }
 }
