@@ -22,6 +22,12 @@ def add_passenger(passenger_post):
     if 'pollingLocation' in passenger_post.keys():
         passenger_post['polling_location'] = passenger_post['pollingLocation']
         del passenger_post['pollingLocation']
+    if 'startTime' in passenger_post.keys():
+        passenger_post['start_time'] = passenger_post['startTime']
+        del passenger_post['startTime']
+    if 'endTime' in passenger_post.keys():
+        passenger_post['end_time'] = passenger_post['endTime']
+        del passenger_post['endTime']
     return passengerTable.insert_one(passenger_post).inserted_id
 
 
