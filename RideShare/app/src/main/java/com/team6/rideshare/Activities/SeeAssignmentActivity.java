@@ -23,6 +23,7 @@ import com.team6.rideshare.network.DriverRoute;
 import com.team6.rideshare.network.PassengerAssignment;
 import com.team6.rideshare.network.RideShareREST;
 import com.team6.rideshare.network.RouteStop;
+import com.team6.rideshare.util.CurrentLogin;
 import com.team6.rideshare.util.LongLatConverter;
 
 import org.androidannotations.annotations.Background;
@@ -121,8 +122,8 @@ public class SeeAssignmentActivity extends AppCompatActivity {
     @Background
     @Click(R.id.see_assignment)
     public void handleClick(){
-        EditText editName = (EditText) findViewById(R.id.name);
-        String name = editName.getText().toString();
+        //EditText editName = (EditText) findViewById(R.id.name);
+        String name = CurrentLogin.getInstance().getUsername();
         final Activity act = this;
         if(name.equals("")) {
             act.runOnUiThread(new Runnable() {

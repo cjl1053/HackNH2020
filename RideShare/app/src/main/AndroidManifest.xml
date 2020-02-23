@@ -14,8 +14,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.SignUp_"
-            android:label="Sign Up"></activity>
+        <activity android:name=".Activities.LogInActivity"></activity>
+        <activity
+            android:name=".Activities.SignUp_"
+            android:label="Sign Up" />
         <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

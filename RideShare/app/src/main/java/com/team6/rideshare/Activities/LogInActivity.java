@@ -19,7 +19,7 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.rest.spring.annotations.RestService;
 
 @EActivity
-public class SignUp extends AppCompatActivity {
+public class LogInActivity extends AppCompatActivity {
 
     @RestService
     RideShareREST rideShareREST;
@@ -27,7 +27,7 @@ public class SignUp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_log_in);
     }
 
     private void showToast(Context ctx, String msg) {
@@ -35,8 +35,8 @@ public class SignUp extends AppCompatActivity {
     }
 
     @Background
-    @Click(R.id.signup_button)
-    public void onSignUp() {
+    @Click(R.id.login_button)
+    public void onClick(){
         EditText editName = findViewById(R.id.name);
         EditText editPass = findViewById(R.id.password);
         String name = editName.getText().toString().trim();
@@ -60,15 +60,15 @@ public class SignUp extends AppCompatActivity {
             });
             return;
         }
-        boolean success = rideShareREST.register(name, password).result;
+        boolean success = rideShareREST.login(name, password).result;
         if(success){
             CurrentLogin.getInstance().setUsername(name);
-            startActivity(new Intent( this, SignUpSuccess_.class));
+            startActivity(new Intent( this, SeeAssignmentActivity_.class));
         } else {
             act.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    showToast(act,"Unable to create account!" );
+                    showToast(act,"Unable to log in!" );
                 }
             });
             return;
