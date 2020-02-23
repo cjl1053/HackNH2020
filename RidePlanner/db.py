@@ -72,14 +72,14 @@ def get_passenger_assignment(name):
     for route in routeTable.find():
         if name in route[1]:
             driver = get_driver_info(route[0])
-            return driver['name'], driver['leaveTime']
+            return driver["name"], driver["leaveTime"]
 
 
 def get_driver_route(name):
     for route in routeTable.find():
         if route[0] == name:
             passengers = route[1]
-            return [(p['name'], p['longitude'], p['latitude']) for p in passengers]
+            return [(p["name"], p["longitude"], p["latitude"]) for p in passengers]
 
 
 def clearDB():
