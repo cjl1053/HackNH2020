@@ -31,4 +31,19 @@ public class LongLatConverter {
         }
     }
 
+    public Address fromCoorddinates(double longitude, double latitude) {
+        List<Address> addresses;
+        try {
+            addresses = mGeocoder.getFromLocation(longitude, latitude, 10);
+            if(addresses == null || addresses.size() == 0) {
+                return null;
+            }
+            // Hopefully Google is smart enough to put the best guess first.
+            return addresses.get(0);
+        } catch(IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
