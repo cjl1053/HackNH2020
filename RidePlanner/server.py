@@ -36,7 +36,8 @@ class RideShareRequestHandler(BaseHTTPRequestHandler):
 
     @staticmethod
     def get_passenger_assignment(name):
-        return db.get_passenger_assignment(name)
+        driver, time = db.get_passenger_assignment(name)
+        return json.dumps({"driver": driver, "time": time})
 
     @staticmethod
     def register_driver(driver):
