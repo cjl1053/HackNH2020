@@ -31,7 +31,7 @@ public class LongLatConverter {
         }
     }
 
-    public Address fromCoorddinates(double longitude, double latitude) {
+    public Address fromCoordinates(double longitude, double latitude) {
         List<Address> addresses;
         try {
             addresses = mGeocoder.getFromLocation(longitude, latitude, 10);
