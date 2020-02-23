@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+import os
 
 mydb = MongoClient()
 
@@ -20,7 +21,9 @@ def add_passenger(passenger_post):
 
 def add_route(driver, passengers):
     for i, passenger in enumerate(passengers):
-        routeTable.insert_one({"driver": driver.name, "passenger": passenger.name, "order": i+1})
+        routeTable.insert_one(
+            {"driver": driver.name, "passenger": passenger.name, "order": i + 1}
+        )
 
 
 def get_passenger_info(name):
@@ -76,9 +79,16 @@ def get_driver_route(name):
     passengers = []
     # Grab every passenger assigned to this driver
     for route in routeTable.find():
-        if route['driver'] == name:
-            passenger = get_passenger_info(route['passenger'])
-            passengers.append((passenger["name"], passenger["longitude"], passenger["latitude"], passenger['order']))
+        if route["driver"] == name:
+            passenger = get_passenger_info(route["passenger"])
+            passengers.append(
+                (
+                    passenger["name"],
+                    passenger["longitude"],
+                    passenger["latitude"],
+                    passenger["order"],
+                )
+            )
 
     # return a sorted list by order, so the route is in the correct order
     return sorted(passengers, key=lambda p: p[3])
@@ -90,28 +100,38 @@ def clearDB():
 
 
 def setupTests():
+    os.chdir(r"./RidePlanner")
     inDriversFile = open("testdrivers.csv", "r")
     inPassengerFile = open("testpassengers.csv", "r")
 
+    # Skipping headers
+    inDriversFile.readline()
+    inPassengerFile.readline()
+
+    # Drivers
     for line in inDriversFile:
-        line = line.rstrip("\n\r").split()
+        line = line.rstrip("\n\r").split(",")
         toPush = {
             "name": line[0],
-            "longitude": line[1],
-            "latitude": line[2],
-            "capacity": line[3],
-            "polling_location": line[4],
+            "longitude": float(line[1]),
+            "latitude": float(line[2]),
+            "capacity": int(line[3]),
+            "leave_time": int(line[4]),
+            "polling_location": line[5],
         }
         temp = driverTable.insert_one(toPush).inserted_id
 
+    # Passangers
     for line in inPassengerFile:
-        line = line.rstrip("\n\r").split()
+        line = line.rstrip("\n\r").split(",")
         toPush = {
             "name": line[0],
-            "longitude": line[1],
-            "latitude": line[2],
-            "capacity": line[3],
-            "polling_location": line[4],
+            "longitude": float(line[1]),
+            "latitude": float(line[2]),
+            "amount": int(line[3]),
+            "start_time": int(line[4]),
+            "end_time": int(line[5]),
+            "polling_location": line[6],
         }
         temp = passengerTable.insert_one(toPush).inserted_id
 
@@ -119,7 +139,9 @@ def setupTests():
     inPassengerFile.close()
 
 
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(get_driver_route("Connor"))
+
+    # Thicc Brain Joey Testing Reigon
+    # clearDB()
+    # setupTests()
