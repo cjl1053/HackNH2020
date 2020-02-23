@@ -133,9 +133,12 @@
     </TableLayout>
 
     <Button
-    android:id="@+id/submit_button"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:text="Submit"/>
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Submit"
+        android:layout_margin="8dp"
+        android:textSize="18sp"
+        style="@style/Widget.MaterialComponents.Button" />
 </LinearLayout>

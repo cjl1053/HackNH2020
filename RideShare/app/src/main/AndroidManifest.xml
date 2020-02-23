@@ -12,11 +12,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.PassengerActivity_"></activity>
+        <activity
+            android:name=".Activities.PassengerActivity_"
+            android:label="Passenger" />
         <activity
             android:name=".Activities.DriverActivity_"
-            android:label="@string/title_activity_driver"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="Driver" />
         <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

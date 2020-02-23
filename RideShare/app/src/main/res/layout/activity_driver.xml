@@ -3,17 +3,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/driver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:lineSpacingExtra="18sp"
-        android:text="Driver"
-        android:textColor="#000000"
-        android:textSize="18sp" />
-
     <TableLayout
         android:id="@+id/driver_table"
         android:layout_width="match_parent"
@@ -139,5 +128,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Submit"></Button>
+        android:text="Submit"
+        android:layout_margin="8dp"
+        android:textSize="14sp"
+        style="@style/Widget.MaterialComponents.Button"
+    />
 </LinearLayout>

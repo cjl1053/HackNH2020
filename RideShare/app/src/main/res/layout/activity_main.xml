@@ -35,7 +35,9 @@
                 android:layout_marginLeft="64dp"
                 android:layout_marginTop="64dp"
                 android:onClick="pressDriver"
-                android:text="Driver" />
+                android:text="Driver"
+                android:textSize="18sp"
+                style="@style/Widget.MaterialComponents.Button"/>
 
             <Button
                 android:id="@+id/pass_butt"
@@ -44,7 +46,9 @@
                 android:layout_marginLeft="64dp"
                 android:layout_marginTop="64dp"
                 android:onClick="pressPass"
-                android:text="Passenger" />
+                android:text="Passenger"
+                android:textSize="18sp"
+                style="@style/Widget.MaterialComponents.Button"/>
         </TableRow>
 
     </TableLayout>
