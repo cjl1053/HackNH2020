@@ -15,7 +15,7 @@ class RideShareRequestHandler(BaseHTTPRequestHandler):
         uri_parts = self.path[1:].split('/')
         if uri_parts[0] == "drivers":
             self.wfile.write(self.get_driver_route(uri_parts[1]))
-        elif uri_parts[1] == "passengers":
+        elif uri_parts[0] == "passengers":
             self.wfile.write(self.get_passenger_assignment(uri_parts[1]))
 
     def do_POST(self):
@@ -32,12 +32,12 @@ class RideShareRequestHandler(BaseHTTPRequestHandler):
 
     @staticmethod
     def get_driver_route(name):
-        return json.dumps({'name': name, 'passengers': db.get_driver_route(name)})
+        return json.dumps({'name': name, 'passengers': db.get_driver_route(name)}).encode()
 
     @staticmethod
     def get_passenger_assignment(name):
         driver, time = db.get_passenger_assignment(name)
-        return json.dumps({"driver": driver, "time": time})
+        return json.dumps({"driver": driver, "time": time}).encode()
 
     @staticmethod
     def register_driver(driver):
