@@ -3,4 +3,5 @@
     <string name="title_activity_driver">DriverActivity</string>
     <string name="driver">Driver name:</string>
     <string name="pick_up">Pick Up time:</string>
+    <string name="route_stop">%s: %s</string>
 </resources>

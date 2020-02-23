@@ -3,6 +3,7 @@ package com.team6.rideshare.Activities;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.location.Address;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,15 +22,22 @@ import com.team6.rideshare.data.Passenger;
 import com.team6.rideshare.network.DriverRoute;
 import com.team6.rideshare.network.PassengerAssignment;
 import com.team6.rideshare.network.RideShareREST;
+import com.team6.rideshare.network.RouteStop;
+import com.team6.rideshare.util.LongLatConverter;
 
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.rest.spring.annotations.RestService;
+import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
+import java.util.Locale;
 
 @EActivity
 public class SeeAssignmentActivity extends AppCompatActivity {
@@ -37,11 +45,14 @@ public class SeeAssignmentActivity extends AppCompatActivity {
     @RestService
     RideShareREST rideShareREST;
 
+    private LongLatConverter mLongLatConverter;
+
     private boolean isDriver=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_assignment);
+        mLongLatConverter = new LongLatConverter(this);
     }
 
     public void radioChecked(View view){
@@ -60,12 +71,27 @@ public class SeeAssignmentActivity extends AppCompatActivity {
 
     @UiThread
     void showDriverStuff(DriverRoute route) {
-        Collections.sort(route.passengers, new Comparator<DriverRoute.RouteStop>() {
+        List<RouteStop> routeStops = Arrays.asList(route.passengers);
+        Collections.sort(routeStops, new Comparator<RouteStop>() {
             @Override
-            public int compare(DriverRoute.RouteStop stop1, DriverRoute.RouteStop stop2) {
+            public int compare(RouteStop stop1, RouteStop stop2) {
                 return stop1.order - stop2.order;
             }
         });
+
+        TableLayout tableLayout = findViewById(R.id.result_table);
+        for(RouteStop stop : routeStops) {
+            TableRow newRow = new TableRow(this);
+
+            Address stopAddress = mLongLatConverter.fromCoordinates(stop.longitude, stop.latitude);
+            String addressText = stopAddress != null ? stopAddress.getAddressLine(0) : String.format(Locale.US, "(%f, %f)", stop.longitude, stop.latitude);
+
+            TextView stopTextView = (TextView) LayoutInflater.from(this).inflate(R.layout.route_stop_textview, newRow, false);
+            stopTextView.setText(getString(R.string.route_stop, stop.name, addressText));
+
+            newRow.addView(stopTextView);
+            tableLayout.addView(newRow);
+        }
 
     }
 
@@ -108,7 +134,7 @@ public class SeeAssignmentActivity extends AppCompatActivity {
             return;
         }
         if(isDriver){
-
+            showDriverStuff(rideShareREST.getDriverRoute(name));
         } else {
             showPassengerStuff(rideShareREST.getPassengerDriver(name));
         }
