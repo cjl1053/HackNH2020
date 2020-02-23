@@ -69,7 +69,7 @@ def get_passenger_assignment(name):
     for route in routeTable.find():
         if name in route[1]:
             driver = get_driver_info(route[0])
-            return driver['name'], driver['leaveTime']
+            return driver["name"], driver["leaveTime"]
 
 
 def get_driver_route(name):
@@ -78,7 +78,7 @@ def get_driver_route(name):
     for route in routeTable.find():
         if route['driver'] == name:
             passenger = get_passenger_info(route['passenger'])
-            passengers.append((passenger['name'], passenger['longitude'], passenger['latitude'], passenger['order']))
+            passengers.append((passenger["name"], passenger["longitude"], passenger["latitude"], passenger['order']))
 
     # return a sorted list by order, so the route is in the correct order
     return sorted(passengers, key=lambda p: p[3])
@@ -87,6 +87,39 @@ def get_driver_route(name):
 def clearDB():
     driverTable.drop()
     passengerTable.drop()
+
+
+def setupTests():
+    inDriversFile = open("testdrivers.csv", "r")
+    inPassengerFile = open("testpassengers.csv", "r")
+
+    for line in inDriversFile:
+        line = line.rstrip("\n\r").split()
+        toPush = {
+            "name": line[0],
+            "longitude": line[1],
+            "latitude": line[2],
+            "capacity": line[3],
+            "polling_location": line[4],
+        }
+        temp = driverTable.insert_one(toPush).inserted_id
+
+    for line in inPassengerFile:
+        line = line.rstrip("\n\r").split()
+        toPush = {
+            "name": line[0],
+            "longitude": line[1],
+            "latitude": line[2],
+            "capacity": line[3],
+            "polling_location": line[4],
+        }
+        temp = passengerTable.insert_one(toPush).inserted_id
+
+    inDriversFile.close()
+    inPassengerFile.close()
+
+
+
 
 if __name__ == '__main__':
     print(get_driver_route("Connor"))
