@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.team6.rideshare.R;
+import com.team6.rideshare.data.Driver;
 import com.team6.rideshare.network.RideShareREST;
 import com.team6.rideshare.util.LongLatConverter;
 
@@ -29,12 +30,10 @@ public class DriverActivity extends AppCompatActivity {
     @RestService
     RideShareREST rideShareREST;
 
-    public String name;
-    public int numPass;
-    public Address leave;
-    public String pollLocation;
     public LongLatConverter longLatConverter;
     public int timePos;
+
+    private String pollLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,22 +84,19 @@ public class DriverActivity extends AppCompatActivity {
     @Background
     @Click(R.id.submit_button)
     public void handleSubmit(){
-        EditText editName = (EditText) findViewById(R.id.edit_text_driver_name);
-        EditText editPass = (EditText) findViewById(R.id.num_passengers);
-        EditText editLoc = (EditText) findViewById(R.id.leave_loc_input);
-        name = editName.getText().toString();
+        EditText editName = findViewById(R.id.edit_text_driver_name);
+        EditText editPass = findViewById(R.id.num_passengers);
+        EditText editLoc = findViewById(R.id.leave_loc_input);
+        String name = editName.getText().toString();
         String passString = editPass.getText().toString();
         String loc = editLoc.getText().toString();
-        leave = longLatConverter.getCoordinates(loc);
-        if(passString.equals(""))
-            numPass = -1;
-        else
+        Address leaveAddress = longLatConverter.getCoordinates(loc);
+        int numPass = -1;
+        if(!(passString.equals(""))) {
             numPass = Integer.parseInt(editPass.getText().toString());
-        Log.i("Name", name);
-        Log.i("Num pass", numPass+"");
-        if(leave != null)
-            Log.i("Addres", leave+"");
+        }
 
+        rideShareREST.registerNewDriver(new Driver(leaveAddress, pollLocation, name, numPass));
     }
 
 
