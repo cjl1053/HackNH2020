@@ -85,3 +85,35 @@ def get_driver_route(name):
 def clearDB():
     driverTable.drop()
     passengerTable.drop()
+
+
+def setupTests():
+    inDriversFile = open("testdrivers.csv", "r")
+    inPassengerFile = open("testpassengers.csv", "r")
+
+    for line in inDriversFile:
+        line = line.rstrip("\n\r").split()
+        toPush = {
+            "name": line[0],
+            "longitude": line[1],
+            "latitude": line[2],
+            "capacity": line[3],
+            "polling_location": line[4],
+        }
+        temp = driverTable.insert_one(toPush).inserted_id
+
+    for line in inPassengerFile:
+        line = line.rstrip("\n\r").split()
+        toPush = {
+            "name": line[0],
+            "longitude": line[1],
+            "latitude": line[2],
+            "capacity": line[3],
+            "polling_location": line[4],
+        }
+        temp = passengerTable.insert_one(toPush).inserted_id
+
+    inDriversFile.close()
+    inPassengerFile.close()
+
+
