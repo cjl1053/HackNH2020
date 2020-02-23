@@ -7,6 +7,8 @@ db = mydb["users"]
 driverTable = db.drivers
 passengerTable = db.passengers
 
+routeTable = db.routes
+
 
 def add_driver(driver_post):
     return driverTable.insert_one(driver_post).inserted_id
@@ -14,6 +16,10 @@ def add_driver(driver_post):
 
 def add_passenger(passenger_post):
     return passengerTable.insert_one(passenger_post).inserted_id
+
+
+def add_route(driver, passengers):
+    return routeTable.insert_one((driver, passengers)).inserted_id
 
 
 def get_passenger_info(name):
@@ -56,6 +62,25 @@ def get_passengers():
         passengerDestinations.append((key, locationsDict[key]))
 
     return passengerDestinations
+
+
+def get_routes():
+    return [route for route in routeTable.find()]
+
+
+def get_passenger_assignment(name):
+    for route in routeTable.find():
+        if name in route[1]:
+            driver = get_driver_info(route[0])
+            return driver['name'], driver['leaveTime']
+
+
+def get_driver_route(name):
+    for route in routeTable.find():
+        if route[0] == name:
+            passengers = route[1]
+            return [(p['name'], p['longitude'], p['latitude']) for p in passengers]
+
 
 def clearDB():
     driverTable.drop()

@@ -4,10 +4,6 @@ import json
 import db
 
 
-def get_driver_route(name):
-    return f"Driver route for {name}".encode()
-
-
 class RideShareRequestHandler(BaseHTTPRequestHandler):
     def _set_headers(self):
         self.send_response(200)
@@ -35,8 +31,12 @@ class RideShareRequestHandler(BaseHTTPRequestHandler):
             self.register_passenger(body)
 
     @staticmethod
+    def get_driver_route(name):
+        return db.get_driver_route(name)
+
+    @staticmethod
     def get_passenger_assignment(name):
-        return f"Passenger assignment for {name}".encode()
+        return db.get_passenger_assignment(name)
 
     @staticmethod
     def register_driver(driver):

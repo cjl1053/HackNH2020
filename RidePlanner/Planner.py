@@ -1,5 +1,8 @@
 from math import sqrt
 from copy import deepcopy
+from sys import argv
+
+import db
 
 
 class Driver:
@@ -89,6 +92,11 @@ class Planner:
         return self.best_plan, False
 
 
+def write_plan(plan):
+    for route in plan.routes:
+        db.add_route(route[0], route[1])
+
+
 if __name__ == '__main__':
     ds = [Driver(0, 0, 3), Driver(10, 10, 2)]
     ps = [Passenger(1, 1, 1), Passenger(2, 3, 2), Passenger(9, 7, 1), Passenger(5, 5, 3)]
@@ -100,3 +108,6 @@ if __name__ == '__main__':
     print("Did route get all passengers? " + str(result[1]))
     for route in test_plan.routes:
         print(route)
+
+    if '-p' in argv:
+        write_plan(test_plan)
