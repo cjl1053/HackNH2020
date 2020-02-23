@@ -20,7 +20,7 @@ public class LongLatConverter {
         List<Address> addresses;
         try {
             addresses = mGeocoder.getFromLocationName(address, 10);
-            if(addresses == null) {
+            if(addresses == null || addresses.size()==0) {
                 return null;
             }
             // For now, just return the first result.

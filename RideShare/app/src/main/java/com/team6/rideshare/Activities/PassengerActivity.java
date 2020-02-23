@@ -2,6 +2,8 @@ package com.team6.rideshare.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.location.Address;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +40,7 @@ public class PassengerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passenger);
+        longLatConverter = new LongLatConverter(this.getApplicationContext());
 
         Spinner pollSpinner = (Spinner) findViewById(R.id.poll_loc_spinner);
         ArrayAdapter<CharSequence> poll_adapter = ArrayAdapter.createFromResource(this,
@@ -94,6 +97,10 @@ public class PassengerActivity extends AppCompatActivity {
         });
     }
 
+    private void showToast(Context ctx, String msg) {
+        Toast.makeText(ctx, msg, Toast.LENGTH_SHORT).show();
+    }
+
     @Background
     @Click(R.id.submit_button)
     public void handleSubmit(){
@@ -104,16 +111,32 @@ public class PassengerActivity extends AppCompatActivity {
         String passString = editPass.getText().toString();
         String loc = editLoc.getText().toString();
         Address leaveAddress = longLatConverter.getCoordinates(loc);
+        final Activity act = this;
         if(leaveAddress == null) {
-            Toast.makeText(this, "Address not found", Toast.LENGTH_SHORT).show();
+            act.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    showToast(act,"Address not found" );
+                }
+            });
             return;
         }
         if(passString.equals("")) {
-            Toast.makeText(this, "Please enter a number of passengers!", Toast.LENGTH_SHORT).show();
+            act.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    showToast(act,"Please enter a number of passengers!" );
+                }
+            });
             return;
         }
         if(name.equals("")) {
-            Toast.makeText(this, "Please enter your name!", Toast.LENGTH_SHORT).show();
+            act.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    showToast(act,"Please enter your name!" );
+                }
+            });
             return;
         }
         int numPass = Integer.parseInt(editPass.getText().toString());
