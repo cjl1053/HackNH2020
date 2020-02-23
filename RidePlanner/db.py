@@ -101,6 +101,7 @@ def clearDB():
     driverTable.drop()
     passengerTable.drop()
     routeTable.drop()
+    db.accounts.drop()
 
 
 def setupTests():
@@ -137,7 +138,6 @@ def setupTests():
             "end_time": int(line[5]),
             "polling_location": line[6],
         }
-        temp = passengerTable.insert_one(toPush).inserted_id
 
     inDriversFile.close()
     inPassengerFile.close()
