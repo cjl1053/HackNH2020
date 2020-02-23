@@ -7,11 +7,13 @@ public class Passenger {
     private Address mAddress;
     private Address mPollingLocation;
     private int mAmount;
+    private String mName;
 
-    public Passenger(Address address, Address pollingLocation, int amount) {
+    public Passenger(Address address, Address pollingLocation, String name, int amount) {
         mAddress = address;
         mPollingLocation = pollingLocation;
         mAmount = amount;
+        mName = name;
     }
 
     public Address getAddress() {
@@ -24,5 +26,9 @@ public class Passenger {
 
     public int getAmount() {
         return mAmount;
+    }
+
+    public String getName() {
+        return mName;
     }
 }

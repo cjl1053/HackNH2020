@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="polling_locations">
+        <item>Acworth Town Hall 13 Town Hall Rd Acworth 03601</item>
+        <item>Albany Town Hall 1972 Route 16 Albany 03818</item>
+        <item>Old Town Hall 45 Washburn Rd Alexandria 03222</item>
+        <item>St Jean The Baptist Parish Hall 10 School St Allenstown 03275</item>
+        <item>Town Hall 9 Main St Alstead 03602</item>
+        <item>St. Katharine Drexel Church 40 Hidden Spring Rd Alton 03809</item>
+        <item>Souhegan High School 412 Boston Post Rd Amherst 03031</item>
+        <item>Andover Elementary Middle School 20 School St Andover 03216</item>
+        <item>Antrim Town Hall 66 Main St Antrim 03440</item>
+        <item>Atkinson Community Center 4 Main St Atkinson 03811</item>
+        <item>Barnstead Town Hall 108 S Barnstead Rd Barnstead 03225</item>
+        <item>Bartlett Town Hall 56 Town Hall Rd Bartlett 03845</item>
+        <item>Bath Village School 61 Lisbon Rd Bath 03740</item>
+        <item>Gorham Town Hall 20 Park Street Gorham - Bean\'s Grant 03581</item>
+        <item>Shelburne Town Hall 74 Village Rd Shelburne - Bean\'s Purchase 03581</item>
+        <item>Belmont High School 255 Seavey Rd Belmont 03220</item>
+        <item>Pierce School 19 Main St Bennington 03442</item>
+        <item>Benton Town Building 221 Coventry Rd Benton 03785</item>
+        <item>WARD 04 - Precinct 4 Community Bible Church Sullivan Street Entrance 593 Sullivan St Berlin 03570</item>
+        <item>Bethlehem Town Hall 2155 Main St Bethlehem 03574</item>
+        <item>Boscawen Town Hall 12 High St Boscawen 03303</item>
+        <item>Bow Community Center 3 Bow Center Rd Bow 03304</item>
+        <item>Bradford Community Center 134 East Main St Bradford 03221</item>
+        <item>Bristol Town Office 5 School St Bristol 03222</item>
+        <item>Brookfield Town House 267 Wentworth Rd Brookfield 03872</item>
+        <item>Errol Town Hall 33 Main St Cambridge 03579</item>
+        <item>Campton Municipal Building 12 Gearty Way Campton 03223</item>
+        <item>Canaan Fire Station 62 Nh Rt 118 Canaan 03741</item>
+        <item>15 Baptist Rd Canterbury 03224</item>
+        <item>Carroll Town Hall/Twin Mountain 92 School St Carroll 03595</item>
+        <item>Center Harbor Town Office 36 Main St Center Harbor 03226</item>
+        <item>Gorham Town Hall 20 Park St Gorham - Chandlers Purchase 03581</item>
+        <item>Charlestown Senior Center 233 Old Springfield Rd Charlestown 03603</item>
+        <item>Chester Municipal Office 84 Chester St Chester 03036</item>
+        <item>Chesterfield Town Hall 518 Route 63 Chesterfield 03443</item>
+        <item>Chichester Town Hall 54 Main St Chichester 03258</item>
+        <item>WARD 03 - Disnard Elementary School 160 Hanover St Claremont 03743</item>
+        <item>Clarksville Town Hall 408 Nh Rt 145 Clarksville 03592</item>
+        <item>Columbia Town Hall 1919 Us Route 3 Columbia 03576</item>
+        <item>WARD 01 - Immaculate Conception Church 9 Bonney St Concord 03303</item>
+        <item>WARD 02 - West Congregational Church 499 North State St Concord 03301</item>
+        <item>WARD 05 - Green Street Community Center 39 Green St Concord 03301</item>
+        <item>WARD 06 - Christ The King Parish Hall 72 South Main St Concord 03301</item>
+        <item>WARD 08 - Bektash Temple 189 Pembroke Rd Concord 03301</item>
+        <item>WARD 09 - Havenwood 33 Christian Ave Concord 03301</item>
+        <item>WARD 10 - Broken Ground School 51 South Curtisville Rd Concord 03301</item>
+        <item>Conway Elementary School 160 Main St Conway 03818</item>
+        <item>Cornish Elementary School 994 Town House Rd Cornish 03745</item>
+        <item>Gorham Town Hall 20 Park St Gorham - Crawford\'s Purchase 03581</item>
+        <item>Croydon Town Hall 879 Nh Route 10 Croydon 03773</item>
+        <item>Gorham Town Hall 20 Park St Gorham - Cutt\'s Grant 03581</item>
+        <item>Dalton Municipal Building 756 Dalton Rd Dalton 03598</item>
+        <item>Danbury Town Hall 23 High St Danbury 03230</item>
+        <item>Danville Community Center 169 Main St Danville 03819</item>
+        <item>Deerfield Town Hall 10 Church St Deerfield 03037</item>
+        <item>Deering Town Hall 762 Deering Center Rd Deering 03244</item>
+        <item>WARD 01 - Gilbert H Hood Middle School Dist #1 5 Gilbert Hood Middle School Rd Derry 03038</item>
+        <item>WARD 02 - Calvary Bible Church Dist #2 145 Hampstead Rd Derry 03038</item>
+        <item>WARD 03 - West Running Brook Middle School Dist #3 1 West Running Brook Ln Derry 03038</item>
+        <item>WARD 04 - Gilbert H Hood Middle School Dist #4 5 Hood Rd Derry 03038</item>
+        <item>Beaver Lodge Hale House 500 Cold Spring Rd Dixville 03576</item>
+        <item>WARD 01 - Horne Street Elementary School 78 Horne St Dover 03820</item>
+        <item>WARD 02 - Woodman Park Elementary School 11 Towle Ave Dover 03820</item>
+        <item>WARD 03 - Parish Of The Assumption 150 Central Ave Dover 03820</item>
+        <item>WARD 04 - Elks Lodge 282 Durham Rd Dover 03820</item>
+        <item>WARD 05 - Saint John\'s Methodist Church 28 Cataract Ave Dover 03820</item>
+        <item>WARD 06 - Riverside Rest Home 276 County Farm Rd Dover 03820</item>
+        <item>Dublin Town Hall 1120 Main St Dublin 03444</item>
+        <item>Dummer Town Hall 75 Hill Rd Dummer 03588</item>
+        <item>Oyster River High School 55 Coe Dr Durham 03824</item>
+        <item>East Kingston Elementary School (Multi-Purpose Room) 5 Andrews Ln East Kingston 03827</item>
+        <item>Effingham Elementary School 6 Partridge Cove Rd Effingham 03882</item>
+        <item>Whitney Hall 23 Main St Enfield 03748</item>
+        <item>Epsom Central School 282 Black Hall Rd Epsom 03234</item>
+        <item>Errol Town Hall 33 Main St Errol 03579</item>
+        <item>Columbia Town Hall 1919 Us Route 3 Erving\'s Location 03576</item>
+        <item>Talbot Gym 30 Linden St Exeter 03833</item>
+        <item>Franconia Town Hall 421 Main St Franconia 03580</item>
+        <item>WARD 01 - Franklin Elks 125 South Main St Franklin 03235</item>
+        <item>WARD 03 - Franklin Middle School 200 Sanborn St Franklin 03235</item>
+        <item>Freedom Town Hall 16 Elm St Freedom 03836</item>
+        <item>Ellis School 432 Main St Fremont 03044</item>
+        <item>Gilmanton Academy Building 503 Province Rd Gilmanton 03237</item>
+        <item>Gilsum Community Center 640 Route 10 Gilsum 03448</item>
+        <item>WARD 01 - Goffstown High School 27 Wallace Rd Goffstown 03045</item>
+        <item>Carol T Porter 20 Park St Gorham 03581</item>
+        <item>Goshen Town Hall 54 Mill Village Rd N Goshen 03752</item>
+        <item>Grafton Fire And Ambulance Station 5 Library Rd Grafton 03240</item>
+        <item>Grantham Town Hall 300 Route 10 S Grantham 03753</item>
+        <item>Greenfield Meeting House 776 Forest Rd Greenfield 03047</item>
+        <item>Greenland Central School 70 Post Rd Greenland 03840</item>
+        <item>Gorham Town Hall 20 Park St Green\'s Grant 03581</item>
+        <item>Groton Town House 754 N Groton Rd Groton 03241</item>
+        <item>Conway Elementary School 160 Main St - Hale\'s Location 03818</item>
+        <item>Hampstead Middle School 28 School St Hampstead 03841</item>
+        <item>Winnacunnet High School Cafeteria 1 Alumni Dr Hampton 03842</item>
+        <item>Hampton Falls Town Office 1 Drinkwater Rd Hampton Falls 03844</item>
+        <item>Hancock Town Office 50 Main St Hancock 03449</item>
+        <item>Town Office Building 705 Chesham Rd Harrisville 03450</item>
+        <item>Town Municipal Building 2975 Dartmouth College Hwy Haverhill 03774</item>
+        <item>Henniker Community School 51 Western Ave Henniker 03242</item>
+        <item>Hill Public Library 30 Crescent St Hill 03243</item>
+        <item>Hinsdale Community Center 19 Main St Hinsdale 03451</item>
+        <item>Holderness Town Hall 1089 Us Rt 3 Holderness 03245</item>
+        <item>Hollis/Brookline Co-Operative High School 24 Cavalier Ct Hollis 03049</item>
+        <item>WARD 01 - Cawley Middle School 89 Ward 01 Whitehall Rd Hooksett 03106</item>
+        <item>WARD 02 - Cawley Middle School 89 Ward 02 Whitehall Rd Hooksett 03106</item>
+        <item>WARD 03 - Cawley Middle School 89 Ward 03 Whitehall Rd Hooksett 03106</item>
+        <item>WARD 04 - Cawley Middle School 89 Ward 04 Whitehall Rd Hooksett 03106</item>
+        <item>WARD 05 - Cawley Middle School 89 Ward 05 Whitehall Rd Hooksett 03106</item>
+        <item>WARD 06 - Cawley Middle School 89 Ward 06 Whitehall Rd Hooksett 03106</item>
+        <item>Hopkinton High School 297 Park Ave Hopkinton 03229</item>
+        <item>Hudson Community Center 12 Lions Ave Hudson 03051</item>
+        <item>WARD 02 - Keene Parks And Recreation Center 312 Washington St Keene 03431</item>
+        <item>WARD 03 - Keene Middle School 167 Maple Ave Keene 03431</item>
+        <item>WARD 04 - Symonds School 79 Park Ave Keene 03431</item>
+        <item>WARD 05 - Monadnock Covenant Church 90 Base Hill Rd Keene 03431</item>
+        <item>Swasey Gym 178 Main St Kingston 03848</item>
+        <item>WARD 04 - Memorial Park Clubhouse 31 Lindsay Ct Laconia 03246</item>
+        <item>WARD 06 - Leavitt Park Clubhouse 334 Elm St Laconia 03246</item>
+        <item>Lancaster Town Hall Auditorium 25 Main St Lancaster 03584</item>
+        <item>Landaff Town Hall 12 Center Hill Rd Landaff 03585</item>
+        <item>Langdon Municipal Building 122 Nh Route 12A Langdon 03602</item>
+        <item>WARD 01 - Kilton Public Library 80 Main St Lebanon 03784</item>
+        <item>WARD 02 - United Methodist Church Of Lebanon 18 School St Lebanon 03766</item>
+        <item>WARD 03 - Ava Gallery 11 Bank St Lebanon 03766</item>
+        <item>Mast Way Elementary School 23 Mast Rd Lee 03861</item>
+        <item>Meeting House 112 Lempster St Lempster 03605</item>
+        <item>Lincoln Town Hall 148 Main St Lincoln 03251</item>
+        <item>Campbell High School 1 Highlander Ct Litchfield 03052</item>
+        <item>Lincoln Town Hall 148 Main Street Lincoln - Livermore 03251</item>
+        <item>295 Mammoth Rd Londonderry 03053</item>
+        <item>Gorham Town Hall 20 Park St Gorham - Low &amp; Burbanks Grant 03581</item>
+        <item>Lyman Town Hall 65 Parker Hill Rd Lyman 03585</item>
+        <item>Citizens\' Hall 9 Citizens Hall Rd Lyndeborough 03082</item>
+        <item>Madbury Town Hall 13 Town Hall Rd Madbury 03823</item>
+        <item>Madison Elementary School Gym 2069 Village Rd Madison 03849</item>
+        <item>WARD 01 - Webster School 2519 Elm St Manchester 03104</item>
+        <item>WARD 03 - Carol M. Rines Center 1528 Elm St Manchester 03101</item>
+        <item>WARD 04 - Mcdonough School 550 Lowell St Manchester 03104</item>
+        <item>WARD 05 - Beech Street School 333 Beech St Manchester 03103</item>
+        <item>WARD 07 - St. Anthony Community Center 148 Belmont St Manchester 03103</item>
+        <item>WARD 08 - Memorial High School 1 Crusader Way Manchester 03103</item>
+        <item>WARD 09 - Bishop Leo E. O\'neil Youth Center 30 S Elm St Manchester 03103</item>
+        <item>WARD 10 - Parker Varney School 223 James A Pollock Dr Manchester 03102</item>
+        <item>WARD 11 - Gossler School 145 Parkside St Manchester 03102</item>
+        <item>WARD 12 - Northwest Elementary School 300 Youville St Manchester 03102</item>
+        <item>Meredith Community Center 1 Circle Dr Meredith 03253</item>
+        <item>WARD 01 - James Mastricola Upper Elementary School 26 Baboosic Lake Rd Merrimack 03054</item>
+        <item>Old Town Hall 200 Kings Hwy Middleton 03887</item>
+        <item>Milan Village School Gym 11 Bridge St Milan 03588</item>
+        <item>Milford Middle School 33 Osgood Rd Milford 03055</item>
+        <item>Log Haven Resturant 469 Us Route 26 Millsfield 03579</item>
+        <item>Restoration Church 370 White Mountain Hwy Milton 03851</item>
+        <item>Monroe Town Hall 50 Main St Monroe 03771</item>
+        <item>Mont Vernon Village School 1 Kittredge Rd Mont Vernon 03057</item>
+        <item>WARD 01 - Broad Street Elementary School 390 Broad St Nashua 03063</item>
+        <item>WARD 02 - Charlotte Avenue Elementary School 48 Charlotte Ave Nashua 03064</item>
+        <item>WARD 03 - Amherst Street Elementary School 71 Amherst St Nashua 03064</item>
+        <item>WARD 04 - Ledge Street Elementary School 139 Ledge St Nashua 03060</item>
+        <item>WARD 06 - Fairgrounds Middle School 27 Cleveland St Nashua 03060</item>
+        <item>WARD 08 - Bicentennial Elementary School 296 East Dunstable Rd Nashua 03062</item>
+        <item>WARD 09 - New Searles Elementary School 39 Shady Ln Nashua 03062</item>
+        <item>New Boston Central Elementary School 15 Central School Rd New Boston 03070</item>
+        <item>New Durham School 7 Old Bay Rd New Durham 03855</item>
+        <item>New Hampton Town House 86 Town House Rd New Hampton 03256</item>
+        <item>Whipple Memorial Town Hall 429 Main St New London 03257</item>
+        <item>Town Office Building 937 Route 103 Newbury 03255</item>
+        <item>Newfields Town Hall 65 Main St Newfields 03856</item>
+        <item>North Hampton School 201 Atlantic Ave North Hampton 03862</item>
+        <item>Pines Community Center 61 Summer St Northfield 03276</item>
+        <item>243 S Main St Newmarket 03857</item>
+        <item>Newport Town Hall/Opera House 20 Main St Newport 03773</item>
+        <item>Northumberland Town Hall 10 Station Square St Northumberland 03582</item>
+        <item>St. Joseph\'s Parish Hall 844 1St Nh Tpke Northwood 03261</item>
+        <item>245 Stage Rd Nottingham 03290</item>
+        <item>Columbia Town Hall 1919 Us Route 3 Odell 03576</item>
+        <item>Orange Town House 8 Townhouse Rd Orange 03741</item>
+        <item>Ossipee Town Hall 55 Main St Ossipee 03814</item>
+        <item>Pelham High School 85 Marsh Rd Pelham 03076</item>
+        <item>Pembroke Three Rivers School 243 Academy Rd Pembroke 03275</item>
+        <item>Gorham Town Hall 20 Park St Pinkham\'s Grant 03581</item>
+        <item>Pittsburg School 12 School St Pittsburg 03592</item>
+        <item>Pittsfield Town Hall 85 Main St Pittsfield 03263</item>
+        <item>Pollard School Gym 120 Main St Plaistow 03865</item>
+        <item>Plymouth Elementary School 43 Old Ward Bridge Rd Plymouth 03264</item>
+        <item>WARD 01 - New Franklin School 1 Franklin Dr Portsmouth 03801</item>
+        <item>WARD 02 - Middle School 155 Parrott Ave Portsmouth 03801</item>
+        <item>WARD 03 - Robert J. Lister Academy 35 Sherburne Rd Portsmouth 03801</item>
+        <item>WARD 05 - Little Harbour School 50 Clough Dr Portsmouth 03801</item>
+        <item>Randolph Town Hall 130 Durand Rd Randolph 03593</item>
+        <item>Veterans Memorial Hall 150 Old Homestead Hwy Richmond 03470</item>
+        <item>Rindge Memorial School 58 School St Rindge 03461</item>
+        <item>WARD 01 - East Rochester Elementary School 773 Portland St Rochester 03868</item>
+        <item>WARD 04 - Mcclelland Elementary School 59 Brock St Rochester 03867</item>
+        <item>American Legion Post 47 551 Foundry St Rollinsford 03869</item>
+        <item>Roxbury Town Hall 3 Middletown Rd Roxbury 03431</item>
+        <item>WARD 01 - Fisk School 14 Main St Salem 03079</item>
+        <item>WARD 02 - Soule School 173 S Policy St Salem 03079</item>
+        <item>WARD 03 - Barron School 55 Butler St Salem 03079</item>
+        <item>WARD 04 - Senior Center 1 Sally Sweets Way Salem 03079</item>
+        <item>Sanbornton Old Town Hall 4 Meetinghouse Hill Rd Sanbornton 03269</item>
+        <item>Sandown Town Hall 320 Main St Sandown 03873</item>
+        <item>Sandwich Town Hall 8 Maple St Sandwich 03227</item>
+        <item>Seabrook Community Center 311 Lafayette Rd Seabrook 03874</item>
+        <item>Errol Town Hall 33 Main Street Errol - For Polling Place Only Second College Grant 03579</item>
+        <item>Sharon Meeting House 432 Rt 123 Sharon 03458</item>
+        <item>Shelburne Town Hall 74 Village Rd Shelburne 03581</item>
+        <item>WARD 01 - City Hall 1 Government Way Somersworth 03878</item>
+        <item>WARD 02 - Summersworth Historical Museum 157 Main St Somersworth 03878</item>
+        <item>WARD 03 - Flanagan Community Center 25 Bartlett Ave Somersworth 03878</item>
+        <item>WARD 04 - Charpentier Apartments 28 Franklin St Somersworth 03878</item>
+        <item>WARD 05 - Romeo J Messier Building 218 Main St Somersworth 03878</item>
+        <item>Springfield Meeting House 23 Four Corners Rd Springfield 03284</item>
+        <item>Stark Volunteer Fire Department 1276 Stark Hwy Stark 03582</item>
+        <item>Stewartstown Community School 60 School St Stewartstown 03597</item>
+        <item>Stoddard Town Hall 1450 Route 123 North Stoddard 03464</item>
+        <item>Fuller Town Hall 1956 Us Route 3 Stratford 03590</item>
+        <item>Stratham Municipal Center 10 Bunker Hill Ave Stratham 03885</item>
+        <item>Carolina Crapo Building 1411 Route 117 Sugar Hill 03586</item>
+        <item>Sullivan Town Hall 452 Centre St Sullivan 03445</item>
+        <item>Surry Town Hall 1 Village Rd Surry 03431</item>
+        <item>Sutton Town Hall 93 Main St Sutton 03221</item>
+        <item>Christian Life Fellowship Church 211 Whitcomb Rd Swanzey 03446</item>
+        <item>Temple Town Hall 19 Main St Temple 03084</item>
+        <item>Gorham Town Hall 20 Park St Gorham - Thompson &amp; Meserve\'s Purchase 03581</item>
+        <item>Thornton Central School 1886 Nh Route 175 Rte Thornton 03285</item>
+        <item>Winnisquam High School 435 W Main St Tilton 03276</item>
+        <item>Community Center 61 South St Troy 03465</item>
+        <item>Tuftonboro Town House 247 Middle Rd Tuftonboro 03816</item>
+        <item>Wakefield Town Hall Opera House 2 High St Wakefield 03872</item>
+        <item>34 Elm St Walpole 03608</item>
+        <item>WARD 02 - St Peters Church 38 Church St Walpole 03609</item>
+        <item>Warner Town Hall 5 East Main St Warner 03278</item>
+        <item>Town Hall 21 Water St Warren 03279</item>
+        <item>Camp Morgan Lodge 338 Millen Pond Rd Washington 03280</item>
+        <item>Recreation Department 11 Noon Peak Rd Waterville Valley 03215</item>
+        <item>Weare Middle School 16 East Rd Weare 03281</item>
+        <item>Webster Town Hall 945 Battle St Webster 03303</item>
+        <item>Errol Town Hall 33 Main St Wentworth\'s Location 03579</item>
+        <item>Westmoreland Town Hall 780 Route 63 Westmoreland 03467</item>
+        <item>Cd Mcintyre Auditorium 16 Highland St Whitefield 03598</item>
+        <item>Wilmot Town Hall 9 North Wilmot Rd Wilmot 03287</item>
+        <item>Wilton Town Hall 42 Main St Wilton 03086</item>
+        <item>Town Hall 1 Richmond Rd Winchester 03470</item>
+        <item>Windham High School 64 London Bridge Rd Windham 03087</item>
+        <item>Windsor Town Hall 14 White Pond Rd Windsor 03244</item>
+        <item>Woodstock Town Hall 924 Daniel Webster Hwy Woodstock 03262</item>
+    </string-array>
+</resources>
