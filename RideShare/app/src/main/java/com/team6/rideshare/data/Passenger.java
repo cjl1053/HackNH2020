@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Passenger {
 
     private Address address;
+    private double longitude;
+    private double latitude;
     private String pollingLocation;
     private int amount;
     private String name;
@@ -16,6 +18,8 @@ public class Passenger {
     public Passenger(Address address, String pollingLocation, String name, int amount,
                      int startTime, int endTime) {
         this.address = address;
+        this.latitude = address.getLatitude();
+        this.longitude = address.getLongitude();
         this.pollingLocation = pollingLocation;
         this.amount = amount;
         this.name = name;
@@ -26,6 +30,14 @@ public class Passenger {
     @JsonIgnore
     public Address getAddress() {
         return address;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
     }
 
     public String getPollingLocation() {
