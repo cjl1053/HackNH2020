@@ -81,20 +81,13 @@ def get_passenger_assignment(name):
 def get_driver_route(name):
     passengers = []
     # Grab every passenger assigned to this driver
-    for route in routeTable.find():
-        if route["driver"] == name:
-            passenger = get_passenger_info(route["passenger"])
-            passengers.append(
-                (
-                    passenger["name"],
-                    passenger["longitude"],
-                    passenger["latitude"],
-                    route["order"],
-                )
-            )
+    for route in routeTable.find({"driver": name}):
+        passenger = get_passenger_info(route["passenger"])
+        passengers.append({"name": passenger["name"], "longitude": passenger["longitude"],
+                           "latitude": passenger["latitude"], "order": route["order"]})
 
     # return a sorted list by order, so the route is in the correct order
-    return sorted(passengers, key=lambda p: p[3])
+    return passengers
 
 
 def clearDB():
@@ -138,6 +131,7 @@ def setupTests():
             "end_time": int(line[5]),
             "polling_location": line[6],
         }
+        passengerTable.insert_one(toPush)
 
     inDriversFile.close()
     inPassengerFile.close()
@@ -145,8 +139,8 @@ def setupTests():
 
 if __name__ == "__main__":
     # print(get_driver_route("Macauley"))
-    print(get_passenger_assignment("Steve"))
+    # print(get_passenger_assignment("Steve"))
 
     # Thicc Brain Joey Testing Reigon
-    # clearDB()
-    # setupTests()
+    clearDB()
+    setupTests()
